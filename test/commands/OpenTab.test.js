@@ -1,8 +1,10 @@
 const { expect } = require('../test-helper');
+const {describe} = require("mocha");
+
 const Tab = require('./../../src/aggregate/Tab');
 const OpenTab = require('./../../src/commands/OpenTab');
 const TabOpened = require('./../../src/events/Tab/TabOpened');
-const {describe} = require("mocha");
+
 
 describe('Command OpenTab', () => {
     describe('No event history for the tab', () => {
