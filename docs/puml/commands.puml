@@ -1,0 +1,41 @@
+@startuml commands
+
+title "Commands"
+
+class Command {
+    + Uuid Id
+}
+
+class PlaceOrder {
+    + OrderedItem[] Items
+}
+
+class OpenTab {
+    + int TableNumber
+    + string Waiter
+}
+
+class MarkDrinksServed {
+    + int[] MenuNumbers
+}
+
+class CloseTab {
+    + Uuid Id
+    + float AmountPaid
+}
+
+Command <|-- PlaceOrder
+Command <|-- OpenTab
+Command <|-- MarkDrinksServed
+Command <|-- CloseTab
+
+class OrderedItem {
+    + int MenuNumber
+    + string Description
+    + bool IsDrink
+    + decimal Price
+}
+
+PlaceOrder *-- OrderedItem
+
+@enduml

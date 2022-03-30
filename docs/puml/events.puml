@@ -1,0 +1,48 @@
+@startuml events
+
+title "Events"
+
+class Event {
+    Uuid Id
+}
+
+class TabOpened {
+    + int TableNumber
+    + string Waiter
+}
+
+class DrinksServed {
+    + int[] MenuNumbers
+}
+
+class DrinksOrdered {
+    + OrderedItem[] Items
+}
+
+class FoodOrdered {
+    + OrderedItem[] Items
+}
+
+class TabClosed {
+    + float AmountPaid
+    + float OrderValue
+    + float TipValue
+}
+
+Event <|-- TabOpened
+Event <|-- DrinksOrdered
+Event <|-- FoodOrdered
+Event <|-- DrinksServed
+Event <|-- TabClosed
+
+class OrderedItem {
+    + int MenuNumber
+    + string Description
+    + bool IsDrink
+    + decimal Price
+}
+
+DrinksOrdered *-- OrderedItem
+FoodOrdered *-- OrderedItem
+
+@enduml
