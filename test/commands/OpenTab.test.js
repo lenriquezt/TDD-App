@@ -43,12 +43,26 @@ describe('Command OpenTab', () => {
             cmd.execute();
             
             // When
-            drinks = MarkFoodServed(1, "testFood");
-            drinks.execute();
+            foods = MarkFoodServed(1, "testFood");
+            foods.execute();
             
             // Then
             sinon.assert.calledOnce( spy );
 
         });
+
+        it('Should throw a FoodServed and DrinkServed when MarkFoodServed and MarkDrinkServed are issued', () => {
+            // Given
+            cmd.execute();
+
+            // When
+            drinks = MarkDrinksServed(1, "testDrink");
+            drinks.execute();
+            foods = MarkFoodServed(1, "testFood");
+            foods.execute();
+
+            // Then
+            sinon.assert.calledOnce( spy );
+        })
     });
 });
