@@ -2,10 +2,10 @@ const Command = require('./Command');
 
 class OpenTab extends Command {
 
-    constructor( id, tablenumber, waiter ) {
+    constructor( id, tableNumber, waiter ) {
         super( id );
-        this.TableNumber = tablenumber;
-        this.Waiter = waiter;
+        this.tableNumber = tableNumber;
+        this.waiter = waiter;
     }
   
 }

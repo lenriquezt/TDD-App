@@ -1,5 +1,4 @@
-
-const TabOpened = require('./../events/TabOpened');
+const TabOpened = require('./../events/Tab/TabOpened');
 
 class Tab {
     

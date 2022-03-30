@@ -1,10 +1,10 @@
-const Event = require('./Event');
+const Event = require('../Event');
 
 class TabOpened extends Event{
   
-  constructor( id, tablenumber, waiter) {
+  constructor( id, tableNumber, waiter) {
     super( id );
-    this.TableNumber = tablenumber;
+    this.tableNumber = tableNumber;
     this.Waiter = waiter;
   }
 
