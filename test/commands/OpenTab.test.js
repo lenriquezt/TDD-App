@@ -3,6 +3,7 @@ const {describe} = require("mocha");
 
 const OpenTab = require('./../../src/commands/OpenTab');
 const MarkDrinksServed = require('./../../src/commands/MarkDrinksServed');
+const MarkFoodServed = require('./../../src/commands/MarkFoodServed');
 
 describe('Command OpenTab', () => {
     describe('No event history for the tab', () => {
@@ -24,12 +25,25 @@ describe('Command OpenTab', () => {
 
         });
 
-        it('should throw a DrinksOrdered event when DrinksOrdered command is issued', () => {
+        it('should throw a DrinksServed event when MarkDrinksServed command is issued', () => {
             // Given
             cmd.execute();
             
             // When
             drinks = MarkDrinksServed(1, "testDrink");
+            drinks.execute();
+            
+            // Then
+            sinon.assert.calledOnce( spy );
+
+        });
+
+        it('should throw a FoodServed event when MarkFoodServed command is issued', () => {
+            // Given
+            cmd.execute();
+            
+            // When
+            drinks = MarkFoodServed(1, "testFood");
             drinks.execute();
             
             // Then
