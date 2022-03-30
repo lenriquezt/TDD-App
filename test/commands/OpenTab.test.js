@@ -2,6 +2,7 @@ const { expect , sinon } = require('../test-helper');
 const {describe} = require("mocha");
 
 const OpenTab = require('./../../src/commands/OpenTab');
+const MarkDrinksServed = require('./../../src/commands/MarkDrinksServed');
 
 describe('Command OpenTab', () => {
     describe('No event history for the tab', () => {
@@ -17,6 +18,19 @@ describe('Command OpenTab', () => {
             
             // When
             cmd.execute();
+            
+            // Then
+            sinon.assert.calledOnce( spy );
+
+        });
+
+        it('should throw a DrinksOrdered event when DrinksOrdered command is issued', () => {
+            // Given
+            cmd.execute();
+            
+            // When
+            drinks = MarkDrinksServed(1, "testDrink");
+            drinks.execute();
             
             // Then
             sinon.assert.calledOnce( spy );
