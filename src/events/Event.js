@@ -1,7 +1,7 @@
 class Event {
-    constructor( uuid ) {
-        this.uuid = uuid
-    }
+  constructor(uuid) {
+    this.uuid = uuid;
+  }
 }
 
 module.exports = Event;

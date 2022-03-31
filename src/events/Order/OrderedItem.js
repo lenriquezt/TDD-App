@@ -1,12 +1,10 @@
 class OrderedItem {
-
-    constructor( menuNumber, description, isDrink, price ) {
-        this.menuNumber =menuNumber;
-        this.description = description;
-        this.isDrink = isDrink;
-        this.price = price;
-    }
-
+  constructor(menuNumber, description, isDrink, price) {
+    this.menuNumber = menuNumber;
+    this.description = description;
+    this.isDrink = isDrink;
+    this.price = price;
+  }
 }
 
 module.exports = OrderedItem;
