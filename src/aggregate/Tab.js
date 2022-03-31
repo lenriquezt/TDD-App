@@ -1,5 +1,6 @@
 const TabOpened = require('../events/Tab/TabOpened');
 const DrinksServed = require('../events/Order/DrinksServed');
+const FoodServed = require('../events/Order/FoodServed');
 const TabNotOpen = require("../exceptions");
 const TabClosed = require('../events/Tab/TabClosed');
 
@@ -17,6 +18,10 @@ class Tab {
 
     HandleMarkDrinksServed( uuid, item ){
         this.eventProduced = new DrinksServed( uuid, item );
+    }
+
+    HandleMarkFoodServed( uuid, item ){
+        this.eventProduced = new FoodServed( uuid, item );
     }
 
     HandlePlaceOrder(){
