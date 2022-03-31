@@ -8,6 +8,7 @@ class Tab {
         return new TabOpened( e.Uuid, e.TableNumber, e.Waiter );
     }
 
+    Open({});
 }
 
 module.exports = Tab;
