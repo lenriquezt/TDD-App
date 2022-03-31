@@ -2,8 +2,8 @@ const Event = require('../Event');
 
 class DrinksServed extends Event{
 
-    constructor( id, items ) {
-        super( id );
+    constructor( uuid, items ) {
+        super( uuid );
         this.items = items;
     }
 
