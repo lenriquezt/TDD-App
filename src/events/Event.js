@@ -1,6 +1,6 @@
 class Event {
-    constructor( id ) {
-        this.id = id
+    constructor( uuid ) {
+        this.uuid = uuid
     }
 }
 

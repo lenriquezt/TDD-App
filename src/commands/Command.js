@@ -2,9 +2,10 @@ const EventEmitter = require('events')
 
 class Command extends EventEmitter {
     
-    constructor( uuid ) {
+    constructor( uuid, commandName ) {
         super();
-        this.Uuid = uuid;
+        this.uuid = uuid;
+        this.commandName = commandName
     }
 
 }
