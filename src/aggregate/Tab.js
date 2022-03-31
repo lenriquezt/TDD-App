@@ -3,6 +3,8 @@ const DrinksServed = require('../events/Order/DrinksServed');
 const FoodServed = require('../events/Order/FoodServed');
 const TabNotOpen = require("../exceptions");
 const TabClosed = require('../events/Tab/TabClosed');
+const FoodOrdered = require("../events/Order/FoodOrdered");
+const FoodPrepared = require("../events/Order/FoodPrepared");
 
 class Tab {
 
@@ -16,20 +18,24 @@ class Tab {
         this.eventProduced = new TabOpened( uuid, tableNumber, waiter );
     }
 
+    HandlePlaceOrder(){
+        if ( !this.open ){
+            throw new TabNotOpen()
+        }
+    }
+
     HandleMarkDrinksServed( uuid, item ){
         this.eventProduced = new DrinksServed( uuid, item );
+    }
+
+    HandleMarkFoodPrepared( uuid, item ){
+        this.eventProduced = new FoodPrepared( uuid, item );
     }
 
     HandleMarkFoodServed( uuid, item ){
         this.eventProduced = new FoodServed( uuid, item );
     }
 
-    HandlePlaceOrder(){
-        if ( !this.open ){
-            throw new TabNotOpen()
-        }
-    }
-    
     HandleCloseTab( uuid, amountPaid ){
         if ( !this.open ){
             throw new TabNotOpen()
@@ -37,7 +43,6 @@ class Tab {
 
         this.eventProduced = new TabClosed( uuid, amountPaid, servedItemsValue, amountPaid - servedItemsValue )
     }
-
 }
 
 module.exports = Tab;
