@@ -3,7 +3,6 @@ const DrinksServed = require('../events/Order/DrinksServed');
 const FoodServed = require('../events/Order/FoodServed');
 const TabNotOpen = require("../exceptions");
 const TabClosed = require('../events/Tab/TabClosed');
-const FoodOrdered = require("../events/Order/FoodOrdered");
 const FoodPrepared = require("../events/Order/FoodPrepared");
 
 class Tab {
