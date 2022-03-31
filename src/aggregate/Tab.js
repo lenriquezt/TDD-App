@@ -2,12 +2,7 @@ const TabOpened = require("../events/Tab/TabOpened");
 const DrinksServed = require("../events/Order/DrinksServed");
 const FoodServed = require("../events/Order/FoodServed");
 const TabNotOpen = require("../exceptions");
-<<<<<<< HEAD
 const TabClosed = require('../events/Tab/TabClosed');
-=======
-const TabClosed = require("../events/Tab/TabClosed");
-const FoodOrdered = require("../events/Order/FoodOrdered");
->>>>>>> 0602bd5cb5076b17a06c92a98af4895fd2ad9b4a
 const FoodPrepared = require("../events/Order/FoodPrepared");
 
 class Tab {
