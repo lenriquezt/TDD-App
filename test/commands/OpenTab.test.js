@@ -11,9 +11,9 @@ describe('Command OpenTab', () => {
         uuidTest = 1
         tableNumberTest = 2
         waiterTest = "Derek"
-        
-        command = new OpenTab( uuidTest, tableNumberTest, waiterTest );
-        command.addListener( 'OpenTab', spy );
+
+        commandOpenTab = new OpenTab(uuidTest, tableNumberTest, waiterTest);
+        commandOpenTab.addListener( 'OpenTab', spy );
     });
 
     afterEach( function () {
@@ -21,11 +21,11 @@ describe('Command OpenTab', () => {
     });
 
     describe('No event history for the tab', () => {
-        it('should throw an event when OpenTab command is issued', () => {
+        it('should throw an event when OpenTab commandOpenTab is issued', () => {
             // Given 
             
             // When
-            command.execute( );
+            commandOpenTab.execute( );
             
             // Then
             sinon.assert.calledOnce( spy );
@@ -34,7 +34,7 @@ describe('Command OpenTab', () => {
             // Given 
             
             // When
-            command.execute( );
+            commandOpenTab.execute( );
             
             // Then
             sinon.assert.calledWith( spy, uuidTest, tableNumberTest, waiterTest )
@@ -43,16 +43,16 @@ describe('Command OpenTab', () => {
             // Given 
             
             // When
-            eventReturn = command.execute( );
+            eventReturn = commandOpenTab.execute( );
             
             // Then
             expect( eventReturn ).to.be.an.instanceof( TabOpened );
         });
-        it('should return a TabOpened event with same command uuid', () => {
+        it('should return a TabOpened event with same commandOpenTab uuid', () => {
             // Given 
             
             // When
-            eventReturn = command.execute( );
+            eventReturn = commandOpenTab.execute( );
             
             // Then
             expect( eventReturn.uuid ).to.equal( uuidTest );

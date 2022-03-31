@@ -29,7 +29,7 @@ Here are a set of events we may come up with from the cafe tab scenario.
 
 ## Commands
 
-Commands are things that indicate **requests** to our domain. While an event states that something certainly happened, a command may be accepted or rejected.
+Commands are things that indicate **requests** to our domain. While an event states that something certainly happened, a commandOpenTab may be accepted or rejected.
 
 - OpenTab
 - PlaceOrder
