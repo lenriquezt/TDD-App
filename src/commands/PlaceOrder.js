@@ -1,19 +1,19 @@
 const Command = require('./Command');
-const CommandHandler = require("./CommandHandler");
+const Tab = require("../aggregate/Tab");
 
 class PlaceOrder extends Command {
 
-    eventReturn;
+    eventProduced;
 
     constructor( id, items ) {
-        super( id );
+        super( id , 'PlaceOrder');
         this.items = items;
-        this.addListener( this.commandName, new CommandHandler( this.eventReturn ).HandlePlaceOrder )
+        this.addListener( this.commandName, new Tab( this.eventProduced ).HandlePlaceOrder )
     }
 
     execute( ) {
         this.emit( this.commandName , this.id, this.items);
-        return this.eventReturn;
+        return this.eventProduced;
     }
 
 

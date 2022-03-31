@@ -43,19 +43,19 @@ describe('Command OpenTab', () => {
             // Given 
             
             // When
-            eventReturn = commandOpenTab.execute( );
+            eventProduced = commandOpenTab.execute( );
             
             // Then
-            expect( eventReturn ).to.be.an.instanceof( TabOpened );
+            expect( eventProduced ).to.be.an.instanceof( TabOpened );
         });
         it('should return a TabOpened event with same commandOpenTab uuid', () => {
             // Given 
             
             // When
-            eventReturn = commandOpenTab.execute( );
+            eventProduced = commandOpenTab.execute( );
             
             // Then
-            expect( eventReturn.uuid ).to.equal( uuidTest );
+            expect( eventProduced.uuid ).to.equal( uuidTest );
         });
     });
 });

@@ -23,14 +23,8 @@ describe('Command PlaceOrder', () => {
     });
 
     describe('when no tab is opened', () => {
-        it('should throw an event when PlaceOrder is issued', () => {
-            // Given
-
-            // When
-            commandPlaceOrder.execute( );
-
-            // Then
-            sinon.assert.calledOnce( spy );
+        it('should throw a TabNotOpen error when PlaceOrder command is issued ', () => {
+            expect(() => new PlaceOrder(1, Array()).execute()).to.throw(TabNotOpen);
         });
     });
 });
