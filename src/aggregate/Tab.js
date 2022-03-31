@@ -39,7 +39,6 @@ class Tab {
     if (!this.open) {
       throw new TabNotOpen();
     }
-
     this.eventProduced = new TabClosed(
       uuid,
       amountPaid,
