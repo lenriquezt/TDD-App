@@ -1,12 +1,10 @@
-const Event = require('../Event');
+const Event = require("../Event");
 
-class DrinksServed extends Event{
-
-    constructor( uuid, items ) {
-        super( uuid );
-        this.items = items;
-    }
-
+class DrinksServed extends Event {
+  constructor(uuid, items) {
+    super(uuid);
+    this.items = items;
+  }
 }
 
 module.exports = DrinksServed;
