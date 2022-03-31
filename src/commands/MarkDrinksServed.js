@@ -6,7 +6,6 @@ class MarkDrinksServed extends Command {
     constructor( uuid, items ) {
         super( uuid , 'MarkDrinksServed' );
         this.items = items;
-        this.eventProduced;
         this.addListener( this.commandName, new Tab( this.eventProduced ).HandleMarkDrinksServed )
     }
 
