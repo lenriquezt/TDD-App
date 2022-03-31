@@ -2,67 +2,60 @@ const { expect , sinon } = require('../test-helper');
 const {describe} = require("mocha");
 
 const OpenTab = require('./../../src/commands/OpenTab');
-const MarkDrinksServed = require('./../../src/commands/MarkDrinksServed');
-const MarkFoodServed = require('./../../src/commands/MarkFoodServed');
+const TabOpened = require('./../../src/events/Tab/TabOpened')
 
 describe('Command OpenTab', () => {
-    describe('No event history for the tab', () => {
-        
-        beforeEach( function() {
-            spy = sinon.spy();
-            cmd = new OpenTab( 1, 2, "Derek" );
-            cmd.on('OpenTab', spy );
-        });
+    spy = sinon.spy();
 
-        it('should throw a TabOpened event when OpenTab command is issued', () => {
+    beforeEach( function() {
+        uuidTest = 1
+        tableNumberTest = 2
+        waiterTest = "Derek"
+        
+        command = new OpenTab( uuidTest, tableNumberTest, waiterTest );
+        command.addListener( 'OpenTab', spy );
+    });
+
+    afterEach( function () {
+        spy.resetHistory();
+    });
+
+    describe('No event history for the tab', () => {
+        it('should throw an event when OpenTab command is issued', () => {
             // Given 
             
             // When
-            cmd.execute();
+            command.execute( );
             
             // Then
             sinon.assert.calledOnce( spy );
-
         });
-
-        it('should throw a DrinksServed event when MarkDrinksServed command is issued', () => {
-            // Given
-            cmd.execute();
+        it('should call the callback with the correct arguments', () => {
+            // Given 
             
             // When
-            drinks = MarkDrinksServed(1, "testDrink");
-            drinks.execute();
+            command.execute( );
             
             // Then
-            sinon.assert.calledOnce( spy );
-
+            sinon.assert.calledWith( spy, uuidTest, tableNumberTest, waiterTest )
         });
-
-        it('should throw a FoodServed event when MarkFoodServed command is issued', () => {
-            // Given
-            cmd.execute();
+        it('should return a TabOpened event', () => {
+            // Given 
             
             // When
-            foods = MarkFoodServed(1, "testFood");
-            foods.execute();
+            eventReturn = command.execute( );
             
             // Then
-            sinon.assert.calledOnce( spy );
-
+            expect( eventReturn ).to.be.an.instanceof( TabOpened );
         });
-
-        it('Should throw a FoodServed and DrinkServed when MarkFoodServed and MarkDrinkServed are issued', () => {
-            // Given
-            cmd.execute();
-
+        it('should return a TabOpened event with same command uuid', () => {
+            // Given 
+            
             // When
-            drinks = MarkDrinksServed(1, "testDrink");
-            drinks.execute();
-            foods = MarkFoodServed(1, "testFood");
-            foods.execute();
-
+            eventReturn = command.execute( );
+            
             // Then
-            sinon.assert.calledOnce( spy );
-        })
+            expect( eventReturn.uuid ).to.equal( uuidTest );
+        });
     });
 });
