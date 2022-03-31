@@ -3,10 +3,11 @@ const Tab = require('../aggregate/Tab')
 
 class OpenTab extends Command {
 
-    eventProduced;
+    
 
     constructor( uuid, tableNumber, waiter ) {
         super( uuid , 'OpenTab');
+        this.eventProduced;
         this.tableNumber = tableNumber;
         this.waiter = waiter;
         this.addListener( this.commandName, new Tab( this.eventProduced ).HandleOpenTab )

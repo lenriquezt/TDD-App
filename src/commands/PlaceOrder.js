@@ -3,12 +3,13 @@ const Tab = require("../aggregate/Tab");
 
 class PlaceOrder extends Command {
 
-    eventProduced;
+    
 
     constructor( id, items ) {
         super( id , 'PlaceOrder');
         this.items = items;
-        this.addListener( this.commandName, new Tab( this.eventProduced ).HandlePlaceOrder )
+        this.addListener( this.commandName, new Tab( this.eventProduced ).HandlePlaceOrder );
+        this.eventProduced;
     }
 
     execute( ) {

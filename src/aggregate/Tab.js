@@ -3,10 +3,11 @@ const TabNotOpen = require("../exceptions");
 
 class Tab {
 
-    open = false;
+    
 
     constructor( eventProduced ) {
         this.eventProduced = eventProduced;
+        this.open = false;
     }
 
     HandleOpenTab( uuid, tableNumber, waiter ){
