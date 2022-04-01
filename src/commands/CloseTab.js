@@ -13,7 +13,7 @@ class CloseTab extends Command {
 
   execute() {
     this.emit(this.commandName, this.uuid, this.amountPaid);
-    this.eventProduced = Tab.getEventProduced()
+    this.eventProduced = Tab.getEventProduced();
     return this.eventProduced;
   }
 }

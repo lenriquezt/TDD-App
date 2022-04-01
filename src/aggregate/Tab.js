@@ -9,19 +9,28 @@ var Tab = (function() {
   var eventProduced = null;
   var open = false;
   var servedItemsValue = 0;
+
+  tableOuverte = [];
+
+  
   
   return {
     getEventProduced: function() {
       return eventProduced;
     },
+    getTableOuverte: function() {
+      return tableOuverte;
+    },
     reset: function(){
       eventProduced = null;
       open = false;
       servedItemsValue = 0;
+      tableOuverte = [];
     },
     HandleOpenTab: function (uuid, tableNumber, waiter) {
       open = true;
       eventProduced = new TabOpened( uuid, tableNumber, waiter );
+      tableOuverte.push(tableNumber);
     },
     HandlePlaceOrder: function(){
       if (!open) {
