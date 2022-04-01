@@ -7,13 +7,13 @@ class MarkDrinksServed extends Command {
     this.items = items;
     this.addListener(
       this.commandName,
-      new Tab(this.eventProduced).HandleMarkDrinksServed
+      Tab.HandleMarkDrinksServed
     );
   }
 
   execute() {
     this.emit(this.commandName, this.uuid, this.items);
-
+    this.eventProduced = Tab.getEventProduced()
     return this.eventProduced;
   }
 }

@@ -3,6 +3,7 @@ const { describe } = require("mocha");
 
 const MarkDrinksServed = require("./../../src/commands/MarkDrinksServed");
 const DrinksServed = require("./../../src/events/Order/DrinksServed");
+const Tab = require("../../src/aggregate/Tab");
 
 describe("Command MarkDrinksServed", () => {
   spy = sinon.spy();
@@ -17,6 +18,7 @@ describe("Command MarkDrinksServed", () => {
 
   afterEach(function () {
     spy.resetHistory();
+    Tab.reset();
   });
 
   describe("No event history for the tab", () => {

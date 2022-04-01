@@ -3,6 +3,7 @@ const { describe } = require("mocha");
 
 const OpenTab = require("./../../src/commands/OpenTab");
 const TabOpened = require("./../../src/events/Tab/TabOpened");
+const Tab = require("../../src/aggregate/Tab");
 
 describe("Command OpenTab", () => {
   spy = sinon.spy();
@@ -18,6 +19,7 @@ describe("Command OpenTab", () => {
 
   afterEach(function () {
     spy.resetHistory();
+    Tab.reset();
   });
 
   describe("No event history for the tab", () => {

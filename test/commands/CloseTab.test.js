@@ -5,6 +5,7 @@ const CloseTab = require("./../../src/commands/CloseTab");
 const OpenTab = require("./../../src/commands/OpenTab");
 const TabNotOpen = require("../../src/exceptions");
 const TabClosed = require("../../src/events/Tab/TabClosed");
+const Tab = require("../../src/aggregate/Tab");
 
 describe("Command CloseTab", () => {
   spy = sinon.spy();
@@ -19,6 +20,7 @@ describe("Command CloseTab", () => {
 
   afterEach(function () {
     spy.resetHistory();
+    Tab.reset();
   });
 
   describe("when no tab is opened", () => {

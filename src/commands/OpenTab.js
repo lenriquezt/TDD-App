@@ -8,13 +8,13 @@ class OpenTab extends Command {
     this.waiter = waiter;
     this.addListener(
       this.commandName,
-      new Tab(this.eventProduced).HandleOpenTab
+      Tab.HandleOpenTab
     );
   }
 
   execute() {
     this.emit(this.commandName, this.uuid, this.tableNumber, this.waiter);
-
+    this.eventProduced = Tab.getEventProduced()
     return this.eventProduced;
   }
 }

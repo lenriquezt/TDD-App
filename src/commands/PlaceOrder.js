@@ -7,12 +7,13 @@ class PlaceOrder extends Command {
     this.items = items;
     this.addListener(
       this.commandName,
-      new Tab(this.eventProduced).HandlePlaceOrder
+      Tab.HandlePlaceOrder
     );
   }
 
   execute() {
     this.emit(this.commandName, this.id, this.items);
+    this.eventProduced = Tab.getEventProduced()
     return this.eventProduced;
   }
 }
