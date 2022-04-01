@@ -13,6 +13,19 @@ describe("Command CloseTab", () => {
       spy.resetHistory();
       Tab.reset();
     });
+
+    it("should return an empty list if no open table", () => {
+        // Given
+
+        // When
+        adminReadTest = new AdminRead();
+        tableOpened = adminReadTest.read();
+
+        //Then
+        tableOpenedExpected = [];
+        expect(tableOpened).to.deep.equal(tableOpenedExpected);
+
+    });
   
     
     it("should return all the opened Tab ", () => {
