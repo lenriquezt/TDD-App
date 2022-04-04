@@ -2,39 +2,46 @@
 
 title "Commands"
 
-class Command {
-    + Uuid Id
+class EventEmitter{
+
 }
 
-class PlaceOrder {
-    + OrderedItem[] Items
+class Command{
+    + Uuid uuid
+    + String commandName
+    + Event eventProduced
 }
 
 class OpenTab {
-    + int TableNumber
-    + string Waiter
+    + Int tableNumber
+    + String waiter
+}
+
+class PlaceOrder{
+    + OrderedItem[] items
 }
 
 class MarkDrinksServed {
-    + int[] MenuNumbers
+    + Int[] menuNumbers
 }
 
 class CloseTab {
-    + Uuid Id
-    + float AmountPaid
+    + Float AmountPaid
 }
+
+class OrderedItem {
+    + Int MenuNumber
+    + String Description
+    + Bool IsDrink
+    + Float Price
+}
+
+EventEmitter <|-- Command
 
 Command <|-- PlaceOrder
 Command <|-- OpenTab
 Command <|-- MarkDrinksServed
 Command <|-- CloseTab
-
-class OrderedItem {
-    + int MenuNumber
-    + string Description
-    + bool IsDrink
-    + decimal Price
-}
 
 PlaceOrder *-- OrderedItem
 

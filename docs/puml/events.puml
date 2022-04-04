@@ -3,30 +3,30 @@
 title "Events"
 
 class Event {
-    Uuid Id
+    Uuid uuid
 }
 
 class TabOpened {
-    + int TableNumber
-    + string Waiter
+    + Int tableNumber
+    + String waiter
 }
 
 class DrinksServed {
-    + int[] MenuNumbers
+    + Int[] menuNumbers
 }
 
 class DrinksOrdered {
-    + OrderedItem[] Items
+    + OrderedItem[] items
 }
 
 class FoodOrdered {
-    + OrderedItem[] Items
+    + OrderedItem[] items
 }
 
 class TabClosed {
-    + float AmountPaid
-    + float OrderValue
-    + float TipValue
+    + Float amountPaid
+    + Float orderValue
+    + Float tipValue
 }
 
 Event <|-- TabOpened
